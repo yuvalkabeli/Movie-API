@@ -12,7 +12,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000
 
 app.get('/getMovies', (req, res) => {
-    res.send(datafromthing);
+    res.send(movies);
 })
 
 app.get('/searchMovieByName/:movieTitle', (req, res) => {

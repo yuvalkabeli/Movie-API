@@ -12,21 +12,10 @@ app.use(express.json());
 const port = process.env.PORT || 3000
 
 app.get('/getMovies', (req, res) => {
-    res.send(movies);
-})
+    setTimeout(() => {
+        res.send(movies);
 
-app.get('/searchMovieByName/:movieTitle', (req, res) => {
-    const { movieTitle } = req.params
-    if (!movieTitle) return res.send({ error: 'movie not found' });
-    const movie = movies.filter((movieObj) => movieObj.title.includes(movieTitle));
-    res.send(movie);
-})
-
-app.get('/searchMovieByGenre/:genre', (req, res) => {
-    const { genre } = req.params
-    if (!genre) return res.send({ error: 'movie not found' });
-    const movie = movies.filter((movieObj) => movieObj.genre.includes(genre));
-    res.send(movie);
+    }, 7000)
 })
 
 

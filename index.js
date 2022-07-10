@@ -11,13 +11,12 @@ app.use(express.json());
 
 const port = process.env.PORT || 3000
 
-app.get('/getMovies', (req, res) => {
-    setTimeout(() => {
-        res.send(movies);
-
-    }, 7000)
+app.get('/', (req, res) => {
+    res.send('server is up')
 })
-
+app.get('/getMovies', (req, res) => {
+    res.send(movies);
+})
 
 
 app.listen(port, () => {

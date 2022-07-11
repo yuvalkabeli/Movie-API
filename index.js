@@ -5,6 +5,12 @@ const cors = require('cors');
 
 require('dotenv').config();
 
+var http = require("http");
+
+setInterval(function () { //keep heroku server running
+    http.get("https://kabeli-movies-api.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
+
 app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
